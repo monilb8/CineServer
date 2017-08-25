@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace formulario.Models
 {
@@ -20,11 +21,17 @@ namespace formulario.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public static ApplicationDbContext applicationDbContext;
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
+        public DbSet<Pelicula> Pelicula { get; set; }
+
+        public DbSet<Entrada> Entrada { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
