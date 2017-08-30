@@ -10,6 +10,6 @@ namespace formulario
         public long Id { get; set; }
         public string Pelicula { get; set; }
         public int Duracion { get; set; }
-        public int Butaca { get; set; }
+        public int Sala { get; set; }
     }
 }
